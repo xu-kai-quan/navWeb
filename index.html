@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的导航网站</title>
+    <link rel="stylesheet" href="./a.css">
+</head>
+
+<body>
+    <header></header>
+    <main >
+        <div id=wrapper class="wrapper">
+
+        </div>
+    </main>
+    <footer></footer>
+</body>
+<script>
+    var keys = [
+        ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'],
+        ['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'],
+        ['z', 'x', 'c', 'v', 'b', 'n', 'm'],
+    ]
+    var hash = {
+        q: 'qq.com',
+        w: 'weibo.com',
+        e: 'ele.com',
+        z: 'zhihu.com',
+        m: 'www.mcdonalds.com.cn'
+    }
+    index = 0
+    while (index < keys.length) {
+        div1 = document.createElement('div')
+        wrapper.appendChild(div1)
+        index2 = 0
+        row = keys[index]
+        while (index2 < row.length) {
+            kbd1 = document.createElement('kbd')
+            kbd1.textContent= row[index2]
+            button1 = document.createElement('button')
+            button1.textContent = '编辑'
+            button1.id = row[index2]
+            button1.onclick = function(click){
+                key = click.target.id
+                website = prompt('请输入一个网址')
+                hash[key] = website
+            }
+            kbd1.appendChild(button1)
+            div1.appendChild(kbd1)
+            
+            index2 += 1
+        }
+        index += 1
+    }
+    document.onkeypress = function(press){
+        key1 = press.key
+        website = hash[key1]
+        window.open('http://'+website,'_blank')
+    }
+
+
+</script>
+
+</html>
